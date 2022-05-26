@@ -1,32 +1,33 @@
 <?php
-require_once('../Controlador/controladorProducto.php');
-require_once('layoutSuperior.php');
+require_once('../Controlador/ControladorVehiculo.php');
+//require_once('layoutSuperior.php');
 ?>
 
-    <a href="../Controlador/controladorProducto.php?vista=registrarProducto.php">Registrar</a>
+    <a href="../Controlador/controladorVehiculo.php?vista=RegistrarVehiculo.php">Registrar</a>
     <h1 align="center">Productos</h1>
     <table border="1" align="center">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Acciones</th>
+                <th>Vehiculo</th>
+                <th>Kilometraje</th>
+                <th>Placa</th>
+                <th>V.Soat</th>
+                <th>V.Tecno</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                foreach($listaProducto as $Producto){
+                foreach($listarVehiculo as $Vehiculo){
                     echo "<tr>";
-                    echo "<td>".$Producto['idProducto']."</td>";
-                    echo "<td>".$Producto['Nombre']."</td>";
-                    echo "<td>$".number_format($Producto['Precio'],1,",",".") ."</td>";
+                    echo "<td>".$Vehiculo['idVehiculo']."</td>";
+                    echo "<td>".$Vehiculo['Kilometraje']."</td>";
+                   // echo "<td>$".number_format($Vehiculo['Precio'],1,",",".") ."</td>";
                     echo " <td>
-                    <form id='frmProducto$Producto[idProducto]' method = 'POST' action = '../controlador/controladorProducto.php' >
-                        <input type='hidden' name = 'idProducto' value=".$Producto['idProducto']." />
+                    <form id='frmVehiculo$Vehiculo[idVehiculo]' method = 'POST' action = '../controlador/ControladorVehiculo.php' >
+                        <input type='hidden' name = 'idVehiculo' value=".$Vehiculo['idVehiculo']." />
                         <button type='submit' name= 'Editar'>Editar</button>
                         <input type='hidden' name='Eliminar' />
-                        <button type='button' onclick='validarEliminacion($Producto[idProducto])' name= 'Eliminar'>Eliminar</button>
+                        <button type='button' onclick='validarEliminacion($Vehiculo[idVehiculo])' name= 'Eliminar'>Eliminar</button>
                     </form>
                     </td>";
                     echo "</tr>";
@@ -36,13 +37,13 @@ require_once('layoutSuperior.php');
     </table>
 
     <script>
-        function validarEliminacion(idProducto){
+        function validarEliminacion(idVehiculo){
             if(confirm('¿Realmente desea eliminar?')){
-                document.getElementById('frmCategoria'+idProducto).submit();
+                document.getElementById('frmVehiculo'+idVehiculo).submit();
             }
         }
 
     </script>
 <?php
-require_once('layoutInferior.php');
+//require_once('layoutInferior.php');
 ?>

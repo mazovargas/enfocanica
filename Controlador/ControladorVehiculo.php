@@ -101,38 +101,42 @@ $listarVehiculo = $controladorVehiculo->listarVehiculo(); //Verificar si se devu
 //verificar la accion a realizar 
 if (isset($_POST['Registrar'])) { //isset confirma si una variable existe
    echo "Registrando";
-   $e_idCategoria = $_POST['idCategoria'];
-   $e_nombre = $_POST['nombre'];
-   $e_Precio = $_POST['Precio'];
-   $e_Estado = $_POST['Estado'];
+   $e_idVehiculo= $_POST['idVehiculo'];
+   $e_kilometraje = $_POST['Kilometraje'];
+   $e_Placa = $_POST['Placa'];
+   $e_V_Soat = $_POST['V_Soat'];
+   $e_V_Tecno = $_POST['V_Tecno'];
+   $e_idPropietario = $_POST['idPropietario'];
 
-   $controladorProducto->registrarProducto($e_idCategoria,$e_nombre,$e_Precio,$e_Estado);
+   $controladorVehiculo->registrarVehiculo($e_idVehiculo,$e_kilometraje,$e_Placa,$e_V_Soat,$e_V_Tecno,$e_idPropietario);
 }
  else if (isset($_POST['Editar'])) {
-   $e_idProducto = $_POST['idProducto']; //Recibir variable del formulario
+   $e_idVehiculo = $_POST['idVehiculo']; //Recibir variable del formulario
    // echo $e_idProducto;
-   $controladorProducto->desplegarVista("editarProducto.php?idProducto=$e_idProducto");
+   $controladorVehiculo->desplegarVista("editarVehiculo.php?idVehiculo=$e_idVehiculo");
 }
  else if (isset($_REQUEST['Actualizar'])) {
    //capturar valores enviados desdde la vista
-   $e_idProducto = $_REQUEST['idProducto'];
-   $e_nombre = $_REQUEST['nombre'];
+   $e_idVehiculo = $_REQUEST['idVehiculo'];
+   $e_kilometraje = $_REQUEST['Kilometraje'];
    $e_idCategoria = $_REQUEST['idCategoria'];
-   $e_Precio = $_REQUEST['Precio'];
-   $e_Estado = $_REQUEST['Estado'];
+   $e_Placa = $_REQUEST['Placa'];
+   $e_V_Soat = $_REQUEST['V_Soat'];
+   $e_V_Tecno = $_REQUEST['V_Tecno'];
+   $e_idPropietario = $_REQUEST['idPropietario'];
 
 
-   //llamar el metodo actualizarCaegoria
-   $controladorProducto->actualizarProducto($e_idProducto, $e_nombre, $e_idCategoria, $e_Precio, $e_Estado);
+   //llamar el metodo actu alizarCaegoria
+   $controladorVehiculo->actualizarProducto($e_idVehiculo,$e_kilometraje,$e_Placa,$e_V_Soat,$e_V_Tecno,$e_idPropietario);
 }
  else if (isset($_REQUEST['Eliminar'])) {
    //capturar valores enviados desdde la vista
    $e_idProducto = $_REQUEST['idProducto'];
 
    //llamar el metodo eliminarProducto
-   $controladorProducto->eliminarProducto($e_idProducto);
+   $controladorVehiculo->eliminarProducto($e_idProducto);
 }
  elseif (isset($_REQUEST['vista'])) {
-   $controladorProducto->desplegarVista($_REQUEST['vista']);
+   $controladorVehiculo->desplegarVista($_REQUEST['vista']);
 }
 
