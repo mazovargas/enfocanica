@@ -1,13 +1,13 @@
 <?php
-require_once('../Controlador/controladorCategoria.php');
-require_once('../Controlador/controladorProducto.php');
-require_once('layoutSuperior.php');
-$Producto=$controladorProducto->buscarProducto($_REQUEST['idProducto']);
+require_once('../Controlador/ControladorVehiculo.php');
+require_once('../Controlador/ControladorVehiculo.php');
+//require_once('layoutSuperior.php');
+$Vehiculo=$controladorVehiculo->buscarVehiculo($_REQUEST['idVehiculo']);
 ?>
 
 
-    <h1 align="center">Editar Producto</h1>
-    <form action="../Controlador/controladorProducto.php" method="POST">
+    <h1 align="center">Editar Vehiculo</h1>
+    <form action="../Controlador/ControladorVehiculo.php" method="POST">
         <label>Id Producto</label>
         <input type="text" name="idProducto" id="idProducto" readonly value="<?php echo $Producto->getidProducto() ?>"> 
         <br>
@@ -34,17 +34,20 @@ selected
 ?>            
         </select>
         <br>
-        <label>Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="<?php echo $Producto->getNombre() ?>">
+        <label>Kilometraje:</label>
+        <input type="number" name="kilometraje" id="Kilometraje" value="<?php echo $Vehiculo->getKilometraje() ?>">
         <br>
-        <label>Precio:</label>
-        <input type="text" name="Precio" id="Precio" value="<?php echo $Producto->getPrecio() ?>">
+        <label>Placa:</label>
+        <input type="text" name="Placa" id="Placa" value="<?php echo $Vehiculo->getPlaca() ?>">
         <br>
-        <label>Estado</label>
-        <input type="text" name="Estado" id="Esatdo" value="<?php echo $Producto->getestado() ?>">
+        <label>V.Soat</label>
+        <input type="date" name="V.Soat" id="V.Soat" value="<?php echo $Vehiculo->getV_Soat() ?>">
+        <br>
+        <label>V.Tecno</label>
+        <input type="date" name="V.Tecno" id="V.Tecno" value="<?php echo $Vehiculo->getV_Tecno() ?>">
         <br>
         <button type="submit" name="Actualizar">Actualizar</button>
     </form>
 <?php
-require_once('layoutInferior.php');
+//require_once('layoutInferior.php');
 ?>

@@ -48,12 +48,12 @@ class CrudVehiculo{
         return $mensaje;
     }
 
-    public function buscarProducto($Producto){ //READ
+    public function buscarVehiculo($Vehiculo){ //READ
 
       //Establecer la conexión a la base datos
       $baseDatos = Conexion::conectar();
       //Definir la sentencia sql
-      $sql = $baseDatos->query("SELECT * FROM Producto WHERE idProducto=".$Producto->getidProducto());
+      $sql = $baseDatos->query("SELECT * FROM Producto WHERE idVehiculo=".$Vehiculo->getidVehiculo());
       //Ejecutar la consulta
       $sql->execute();
       //Cerrar la conexión
